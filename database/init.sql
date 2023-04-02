@@ -1,25 +1,11 @@
-
-CREATE TABLE customers (
-  customer_id SERIAL PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NOT NULL UNIQUE
+-- 0 Normal Form 
+CREATE TABLE Employees (
+    Name VARCHAR(50),
+    Project1 VARCHAR(50),
+    Project2 VARCHAR(50),
+    Project3 VARCHAR(50)
 );
 
-CREATE TABLE products (
-  product_id SERIAL PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  price NUMERIC(10,2) NOT NULL
-);
-
-CREATE TABLE orders (
-  order_id SERIAL PRIMARY KEY,
-  customer_id INTEGER REFERENCES customers(customer_id),
-  order_date TIMESTAMP NOT NULL DEFAULT NOW()
-);
-
-CREATE TABLE order_items (
-  order_id INTEGER REFERENCES orders(order_id),
-  product_id INTEGER REFERENCES products(product_id),
-  quantity INTEGER NOT NULL,
-  PRIMARY KEY (order_id, product_id)
-);
+INSERT INTO Employees (Name, Project1, Project2, Project3)
+VALUES ('Bob', 'Project A', 'Project B', NULL), ('Jane', 'Project B', 'Project C', NULL),
+       ('John', 'Project A', 'Project C', 'Project D');
