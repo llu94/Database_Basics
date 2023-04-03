@@ -1,0 +1,89 @@
+0NF: Employees
+-------------------------
+| Name | Projects       |
+-------------------------
+| Bob  | Project A, B   |
+| Jane | Project B, C   |
+| John | Project A, C, D|
+-------------------------
+
+1NF: Employees
+----------------------------
+| Name | Project          |
+----------------------------
+| Bob  | Project A        |
+| Bob  | Project B        |
+| Jane | Project B        |
+| Jane | Project C        |
+| John | Project A        |
+| John | Project C        |
+| John | Project D        |
+----------------------------
+
+2NF: Employees
+----------------------
+| EmployeeID | Name    |
+----------------------
+| 1          | Bob     |
+| 2          | Jane    |
+| 3          | John    |
+----------------------
+
+------------------------
+| ProjectID | Project   |
+------------------------
+| 1         | Project A |
+| 2         | Project B |
+| 3         | Project C |
+| 4         | Project D |
+------------------------
+
+----------------------------
+| EmployeeID | ProjectID  |
+----------------------------
+| 1          | 1          |
+| 1          | 2          |
+| 2          | 2          |
+| 2          | 3          |
+| 3          | 1          |
+| 3          | 3          |
+| 3          | 4          |
+----------------------------
+
+3NF: Employees
+----------------------
+| EmployeeID | Name    |
+----------------------
+| 1          | Bob     |
+| 2          | Jane    |
+| 3          | John    |
+----------------------
+
+Projects
+------------------------
+| ProjectID | Project   |
+------------------------
+| 1         | Project A |
+| 2         | Project B |
+| 3         | Project C |
+| 4         | Project D |
+------------------------
+
+EmployeeProjects
+----------------------------
+| EmployeeID | ProjectID  |
+----------------------------
+| 1          | 1          |
+| 1          | 2          |
+| 2          | 2          |
+| 2          | 3          |
+| 3          | 1          |
+| 3          | 3          |
+| 3          | 4          |
+----------------------------
+
+In 0NF, the table is not normalized and contains repeating groups of information. 
+In 1NF, we have separated the repeating groups into individual rows. 
+In 2NF, we have split the table into two tables to eliminate partial dependencies, with a separate table for employees and projects. 
+In 3NF, we have further split the table into three tables to eliminate transitive dependencies, 
+with a separate table for employee and project information and a third table to represent the many-to-many relationship between employees and projects.
